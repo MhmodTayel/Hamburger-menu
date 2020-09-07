@@ -30,7 +30,7 @@
   left: 0;
   width: 50px;
   height: 50px;
-  padding: .75rem;
+  padding: .85rem;
   background: var(--primary-color);
   z-index: 1;
   
@@ -53,6 +53,7 @@
    display: flex;
    align-items: center;
    justify-content: center;
+   transition: all 0.4s ease;
  }
 
  /* Hamburger lines | Top & Bottom lines */
@@ -70,4 +71,24 @@
 
  .menu-wrap .hamburger > div::after {
    top: 10px;
+ }
+
+ /* Toggler animation  */
+
+ /* do animation when the checkbox checked (toggler class)  */
+ /* + selector to select the div right before hamburger class */
+ .menu-wrap .toggler:checked + .hamburger >div {
+    transform: rotate(135deg); /* rotate only */
+ }
+
+ /* the 1st and 3rd lines animation */
+ .menu-wrap .toggler:checked + .hamburger >div::before, .menu-wrap .toggler:checked + .hamburger >div::after {
+   top: 0; /* shorten the 1st & 3rd lines a bit */ 
+    transform: rotate(90deg);
+ }
+
+ /* Rotate on hover when checked */
+
+ .menu-wrap .toggler:checked:hover + .hamburger >div {
+   transform: rotate(225deg);
  }
