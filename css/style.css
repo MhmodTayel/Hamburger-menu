@@ -76,3 +76,17 @@ body {
 .btn:hover {
   opacity: 0.7;
 }
+
+@media(max-width:768px) {
+  .btn:hover {
+    background: #fff;
+    color: #333;
+    opacity: 1;
+  }
+
+  #showcase .showcase-container h1 {
+    font-size: 3rem;
+  }
+  #showcase .showcase-container p {
+    font-size: 1rem;
+}
