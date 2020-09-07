@@ -1,0 +1,73 @@
+.menu-wrap {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+
+/*
+ 1- The checkbox for functionality 
+   2- Hamburger class to create the actual square
+   3- the inner div to create the line inside
+*/   
+
+.menu-wrap .toggler {
+  /* Make the checkbox big and hidden */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  opacity: 0;
+}
+
+.menu-wrap .hamburger {
+  /* the actual square is under the checkbox but not hidden so the checkbox can be clicked */
+  /* this modifies the square box only */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  padding: .75rem;
+  background: var(--primary-color);
+  z-index: 1;
+  
+  /* This modifies the lines in the square . and we use flex to modify the div inside to take care of the lines  */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* use the empty div to create the lines  */
+ .menu-wrap .hamburger > div {
+   /* this creates the middle line (remmber the padding of square box ) */
+   position: relative;
+   flex: none;         /*  no shrink no grow */
+   width: 100%;
+   height: 2px;
+   background: #fff;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ }
+
+ /* Hamburger lines | Top & Bottom lines */
+
+ .menu-wrap .hamburger > div::before,
+ .menu-wrap .hamburger > div::after {
+    content: '';
+    position: absolute; /* this is absolute to relative div */
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit; /* take the color of parent div */
+ }
+
+ .menu-wrap .hamburger > div::after {
+   top: 10px;
+ }
